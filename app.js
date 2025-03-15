@@ -22,11 +22,21 @@ dotenv.config({path: "./config/config.env"});
 // }));
 
 
-app.use(cors({
-    origin: "http://localhost:5173",  // Allow frontend
-    methods: ["GET", "POST", "DELETE", "PUT"],
-    credentials: true,  // Allow cookies
-}));
+const allowedOrigins = [
+    "http://localhost:5173", 
+    "https://oarjobportal.netlify.app"
+  ];
+  
+  app.use(cors({
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true
+  }));
 
 
 
