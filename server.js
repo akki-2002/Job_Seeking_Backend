@@ -18,6 +18,6 @@ app.listen(process.env.PORT, () => {
     console.log(`Server running on port ${process.env.PORT}`);
 });
 
-// To start the backend run npm run dev //287emailid
+// To start the backend/frontend run npm run dev //287emailid to cloudinary, mongoDb, render sign in 582@
 
 // MONGO_URI=mongodb://127.0.0.1:27017 
